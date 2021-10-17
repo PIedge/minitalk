@@ -15,7 +15,7 @@ FLAG	=	-Wall -Wextra -Werror -fsanitize=address
 NAME	=	server
 
 .c.o:
-		$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+		$(CC) $(FLAG) -c $< -o $(<:.c=.o)
 
 all:	$(NAME)
 

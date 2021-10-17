@@ -6,7 +6,7 @@
 /*   By: tmerrien <tmerrien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:31:38 by tmerrien          #+#    #+#             */
-/*   Updated: 2021/08/10 16:09:14 by tmerrien         ###   ########.fr       */
+/*   Updated: 2021/10/17 21:23:15 by tmerrien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ static int	is_ascii(const unsigned char *str)
 	if (*str == '\0')
 		return (0);
 	return (!(*str == '\0'));
-}
-
-static int	check_zer_one(char c, int i)
-{
-	char	byte;
-
-	byte = 1 << i;
-	return (c & byte);
 }
 
 static void	send_char(pid_t pid, char c)
@@ -54,9 +46,6 @@ static void	send_char(pid_t pid, char c)
 
 void	send_tring(pid_t pid, char *str)
 {
-	int		i;
-	char	c;
-
 	--str;
 	while (*(++str))
 		send_char(pid, *str);

@@ -6,7 +6,7 @@
 /*   By: tmerrien <tmerrien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 14:45:05 by tmerrien          #+#    #+#             */
-/*   Updated: 2021/08/10 16:09:12 by tmerrien         ###   ########.fr       */
+/*   Updated: 2021/10/17 21:24:43 by tmerrien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ void	receive_line_sent(int sig, siginfo_t *siginfo, void *context)
 		buff = 0;
 		byte = 0;
 	}
+	siginfo = 0;
+	context = 0;
 }
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	char				serv_pid[11];
 	struct sigaction	act;
