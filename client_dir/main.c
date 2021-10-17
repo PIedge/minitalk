@@ -6,7 +6,7 @@
 /*   By: tmerrien <tmerrien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:31:38 by tmerrien          #+#    #+#             */
-/*   Updated: 2021/10/17 19:03:34 by tmerrien         ###   ########.fr       */
+/*   Updated: 2021/08/10 16:09:14 by tmerrien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	send_char(pid_t pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(4000);
+		usleep(10000);
 	}
 }
 

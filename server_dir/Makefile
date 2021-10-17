@@ -1,21 +1,32 @@
-SRV		=	./server_dir/
+SRCS	=	./exit_serv.c		\
+			./main.c			\
+			utils/ft_atoi.c		\
+			utils/ft_itoa.c		\
+			utils/ft_memset.c	\
+			utils/ft_putstr.c	\
+			utils/ft_strlen.c	\
 
-CLI		=	./client_dir/
+OBJS	=	${SRCS:.c=.o}
 
-all:
-			make -C $(CLI)
-			cp $(CLI)client ./
-			make -C $(SRV)
-			cp $(SRV)server ./
+CC		=	clang
+
+FLAG	=	-Wall -Wextra -Werror -fsanitize=address
+
+NAME	=	server
+
+.c.o:
+		$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+
+all:	$(NAME)
+
+$(NAME): $(OBJS)
+			$(CC) $(FLAG) $(OBJS) -o $(NAME)
 
 clean:
-			make -C $(SRV) clean
-			make -C $(CLI) clean
-fclean: clean
-			make -C $(CLI) fclean
-			make -C $(SRV) fclean
-			rm -f server
-			rm -f client
+		rm -f $(OBJS)
+
+fclean:
+		rm -f $(NAME)
 
 re: fclean all
 
